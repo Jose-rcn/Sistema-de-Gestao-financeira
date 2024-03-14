@@ -1,10 +1,52 @@
 import java.util.ArrayList;
 
 public class CadastroDespesa {
-    private  ArrayList <ContaBancaria> listaDeContasCadastradas = new ArrayList<>();
-    public void adicionarContaBancaria(ContaBancaria conta){
-        listaDeContasCadastradas.add(conta);
+
+    static ArrayList <DespesaCredito> lista_cCreditos;
+    static ArrayList <DespesaDebito> lista_cDespesaDebitos;
+    static ArrayList <Assinaturas> lista_cAssinaturas;
+
+
+    static void adicionarDespesaCredito(DespesaCredito d){
+        lista_cCreditos.add(d);
     }
-    
+    static void removerDespesaCredito(DespesaCredito d){
+        lista_cCreditos.remove(d);
+    }
+    static void adicionarDespesaDebito(DespesaDebito d){
+        lista_cDespesaDebitos.add(d);
+    }
+    static void removerDespesaDebito(DespesaDebito d){
+        lista_cDespesaDebitos.remove(d);
+    }
+    static void adicionarAssinatura(Assinaturas d){
+        lista_cAssinaturas.add(d);
+    }
+    static void removerAssinatura(Assinaturas d){
+        lista_cAssinaturas.remove(d);
+    }
+
+
+    static String listarDespesasCredito(ContaBancaria conta){
+        String dados = "";
+        for(DespesaCredito d :lista_cCreditos){
+            dados += d.getNome() + d.getCategoria();
+        }
+        return dados;
+    }
+    static ArrayList<Assinaturas> listarAssinaturas(ContaBancaria conta){
+        String dados = "";
+        for(Assinaturas a :lista_cAssinaturas){
+            dados += a.getNome() + a.getCategoria();
+        }
+        return lista_cAssinaturas;
+    }
+    static String listarDespesasDebito(ContaBancaria conta){
+        String dados = "";
+        for(DespesaDebito d :lista_cDespesaDebitos){
+            dados += d.getNome() + d.getCategoria();
+        }
+        return dados;
+    }
     
 }

@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class ContaCorrente extends ContaBancaria implements CRUD{
+public class ContaCorrente extends ContaBancaria{
     private double LimiteCartao, LimiteChequeEspecial;
     ArrayList<ContaCorrente> contas_cadastradas = new ArrayList<>();
 
@@ -19,8 +19,8 @@ public class ContaCorrente extends ContaBancaria implements CRUD{
     public void setLimiteChequeEspecial(double LimiteChequeEspecial) {
         this.LimiteChequeEspecial = LimiteChequeEspecial;
     }
-    public ContaCorrente(String numero, double saldo, double LimiteCartao){
-        super(numero, saldo);
+    public ContaCorrente(String nome,String numero, double saldo, double LimiteCartao){
+        super(nome,numero, saldo);
         this.LimiteCartao = LimiteCartao;
     }
     public ContaCorrente(){
