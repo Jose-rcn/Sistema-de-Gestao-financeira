@@ -7,7 +7,6 @@ public class main {
         int opção = 0;
         double saldoNovaConta = 0,limiteNovaConta = 0;
         String nomeNovaConta, numeroNovaConta;
-        boolean cadastroRealizado;
         Scanner entradaTeclado = new Scanner(System.in);
         while (true) {
             System.out.println("[1] Cadastra Conta corrente");
