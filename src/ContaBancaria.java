@@ -25,10 +25,8 @@ public abstract class ContaBancaria {
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
-
-    public ContaBancaria(){
-    }
     public ContaBancaria(String nome,String numero, double saldo){
+        this.nome = nome;
         this.saldo = saldo;
         this.numeroDaConta = numero;
     }

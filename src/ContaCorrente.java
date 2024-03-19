@@ -23,7 +23,4 @@ public class ContaCorrente extends ContaBancaria{
         super(nome,numero, saldo);
         this.LimiteCartao = LimiteCartao;
     }
-    public ContaCorrente(){
-    }
-
 }

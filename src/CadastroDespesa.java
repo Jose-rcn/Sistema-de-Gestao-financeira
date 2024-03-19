@@ -48,5 +48,7 @@ public class CadastroDespesa {
         }
         return dados;
     }
-    
+    static ArrayList<Assinaturas> getLista_cAssinaturas(){
+        return lista_cAssinaturas;
+    }
 }
