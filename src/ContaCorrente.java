@@ -25,12 +25,5 @@ public class ContaCorrente extends ContaBancaria{
     }
     public ContaCorrente(){
     }
-    public void cadastrar(){
-        
-    }
-
-
-
-
 
 }

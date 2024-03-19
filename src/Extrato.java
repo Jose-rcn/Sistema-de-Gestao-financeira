@@ -11,9 +11,9 @@ public class Extrato {
         this.conta = c;
         this.mes = m;
         this.ano = a;
-        for (Assinaturas assinatura: CadastroDespesa.listarAssinaturas(c)){
-            extrato_assinaturas.add(assinatura);
-        }
+        // for (Assinaturas assinatura: CadastroDespesa.listarAssinaturas(c)){
+        //     extrato_assinaturas.add(assinatura);
+        // }
     }
     public void adicionarDespesaCredito(DespesaCredito d){
         extrato_despesas_credito.add(d);

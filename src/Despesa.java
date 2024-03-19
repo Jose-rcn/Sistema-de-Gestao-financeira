@@ -3,8 +3,8 @@ import java.time.LocalDate;
 public abstract class Despesa {
     protected double valor;
     protected String nome, categoria;
-    protected LocalDate data;
-    public Despesa(double valor, String nome, String categoria, LocalDate data){
+    protected String data;
+    public Despesa(double valor, String nome, String categoria, String data){
         this.valor = valor;
         this.nome = nome;
         this.categoria = categoria;
@@ -21,11 +21,11 @@ public abstract class Despesa {
         return this.categoria;
     }
 
-    public LocalDate getData() {
+    public String getData() {
         return this.data;
     }
 
-    public void setData(LocalDate data) {
+    public void setData(String data) {
         this.data = data;
     }
 

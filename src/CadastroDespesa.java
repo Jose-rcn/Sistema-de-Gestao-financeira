@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class CadastroDespesa {
 
-    static ArrayList <DespesaCredito> lista_cCreditos;
-    static ArrayList <DespesaDebito> lista_cDespesaDebitos;
-    static ArrayList <Assinaturas> lista_cAssinaturas;
+    static ArrayList <DespesaCredito> lista_cCreditos = new ArrayList<>();
+    static ArrayList <DespesaDebito> lista_cDespesaDebitos = new ArrayList<>();
+    static ArrayList <Assinaturas> lista_cAssinaturas = new ArrayList<>();
 
 
     static void adicionarDespesaCredito(DespesaCredito d){
@@ -34,17 +34,17 @@ public class CadastroDespesa {
         }
         return dados;
     }
-    static ArrayList<Assinaturas> listarAssinaturas(ContaBancaria conta){
+    static String listarAssinaturas(ContaBancaria conta){
         String dados = "";
         for(Assinaturas a :lista_cAssinaturas){
             dados += a.getNome() + a.getCategoria();
         }
-        return lista_cAssinaturas;
+        return dados;
     }
     static String listarDespesasDebito(ContaBancaria conta){
         String dados = "";
         for(DespesaDebito d :lista_cDespesaDebitos){
-            dados += d.getNome() + d.getCategoria();
+            dados += d.getValor() + d.getCategoria();
         }
         return dados;
     }
