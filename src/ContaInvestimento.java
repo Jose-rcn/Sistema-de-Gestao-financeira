@@ -1,5 +1,5 @@
 public class ContaInvestimento extends ContaBancaria{
-    public ContaInvestimento(String nome,String numero, double saldo){
-        super(nome,numero, saldo);
+    public ContaInvestimento(String nome, double saldo){
+        super(nome,saldo);
     }
 }

@@ -1,14 +1,6 @@
 public abstract class ContaBancaria {
-    protected String numeroDaConta, nome;
+    protected String nome;
     protected double saldo;
-
-    public String getNumeroDaConta() {
-        return this.numeroDaConta;
-    }
-
-    public void setNumeroDaConta(String numeroDaConta) {
-        this.numeroDaConta = numeroDaConta;
-    }
 
     public String getNome() {
         return this.nome;
@@ -25,15 +17,14 @@ public abstract class ContaBancaria {
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
-    public ContaBancaria(String nome,String numero, double saldo){
+    public ContaBancaria(String nome, double saldo){
         this.nome = nome;
         this.saldo = saldo;
-        this.numeroDaConta = numero;
     }
 
     public String GetInformacoes(){
         String dados;
-        dados = "Nome: " + this.nome + "\n" + "Numero: " + this.numeroDaConta + "\n" + "Saldo: " + this.saldo;
+        dados = "Nome: " + this.nome  + "\n" + "Saldo: " + this.saldo;
         return dados;
     }
     public void descontarDespesaDebito(DespesaDebito d){

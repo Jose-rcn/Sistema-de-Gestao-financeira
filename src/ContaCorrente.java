@@ -19,8 +19,11 @@ public class ContaCorrente extends ContaBancaria{
     public void setLimiteChequeEspecial(double LimiteChequeEspecial) {
         this.LimiteChequeEspecial = LimiteChequeEspecial;
     }
-    public ContaCorrente(String nome,String numero, double saldo, double LimiteCartao){
-        super(nome,numero, saldo);
+    public ContaCorrente(String nome, double saldo, double LimiteCartao){
+        super(nome, saldo);
         this.LimiteCartao = LimiteCartao;
+    }
+    static void descontarDebito(ContaCorrente conta,double valor){
+        conta.saldo += conta.saldo - valor;
     }
 }
