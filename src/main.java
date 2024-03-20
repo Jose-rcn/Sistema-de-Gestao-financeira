@@ -52,7 +52,7 @@ public class main {
                     opcaoConta = entradaTeclado.nextInt();
                     ContaCorrente contaAssociada = CadastroConta.lista_cadastro_corrente.get(opcaoConta-1);
 
-                    DespesaDebito debito = new DespesaDebito(valorDespesa,descricaoDespesa,categoriaDespesa,dataDespesa,contaAssociada);
+                    DespesaDebito debito = new DespesaDebito(valorDespesa,descricaoDespesa,categoriaDespesa,contaAssociada);
                     CadastroDespesa.adicionarDespesaDebito(debito);
                     System.out.println("Despesa Cadastrada com sucesso!");
                     break;
@@ -65,10 +65,12 @@ public class main {
                     entradaTeclado.nextLine();
                     categoriaDespesa = entradaTeclado.nextLine(); 
                 
-                    System.out.println("Informe a data:");
-                    entradaTeclado.nextLine();
-                    data = entradaTeclado.nextLine();
-                
+                    System.out.println("Informe o mes:");
+                    int mes = entradaTeclado.nextInt();
+
+                    System.out.println("Informe o ano:");
+                    int ano = entradaTeclado.nextInt();
+            
                     System.out.println("Digite o valor da parcela:");
                     valorDespesa = entradaTeclado.nextDouble();
                 
@@ -78,13 +80,24 @@ public class main {
                     System.out.println(CadastroConta.getContaCorrenteCadastrada());
                     opcaoConta = entradaTeclado.nextInt();
                     contaAssociada = CadastroConta.lista_cadastro_corrente.get(opcaoConta-1);
-                    DespesaCredito credito = new DespesaCredito(valorDespesa, descricaoDespesa, categoriaDespesa , data, qtdParcelas, contaAssociada );
+                    DespesaCredito credito = new DespesaCredito(valorDespesa, descricaoDespesa, categoriaDespesa,contaAssociada, qtdParcelas);
                     CadastroDespesa.adicionarDespesaCredito(credito);
                     System.out.println("Despesa Cadastrada com sucesso!");
+                    if (CadastroExtrato.extratoCadastrado(mes, ano,contaAssociada)){
+                        CadastroExtrato.getExtrato(mes,ano,contaAssociada).adicionarDespesaCredito(credito);
+                        Extrato.adicionarCredito(CadastroExtrato.getExtrato(mes, ano, contaAssociada), credito);
+                    }
+                    else{
+                        Extrato extratocadastra = new Extrato(mes, ano, contaAssociada);
+                        extratocadastra.adicionarDespesaCredito(credito);
+                        CadastroExtrato.adicionarExtrato(extratocadastra);
+                        Extrato.adicionarCredito(extratocadastra, credito);
+                    }
                     break;
                 case 4:
         	        break;
                 case 5:
+                    System.out.println(CadastroExtrato.listarExtrato());
         	        break;
                 default:
         	        System.out.println("Opção inválida, tente novamente com uma das opções possiveis.");

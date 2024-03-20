@@ -2,11 +2,10 @@ public abstract class Despesa {
     protected double valor;
     protected String nome, categoria, data;
     protected ContaCorrente contaAssociada;
-    public Despesa(double valor, String nome, String categoria, String data, ContaCorrente conta){
+    public Despesa(double valor, String nome, String categoria, ContaCorrente conta){
         this.valor = valor;
         this.nome = nome;
         this.categoria = categoria;
-        this.data = data;
         this.contaAssociada = conta;
     }
 

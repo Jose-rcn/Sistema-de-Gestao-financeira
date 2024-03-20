@@ -24,6 +24,6 @@ public class ContaCorrente extends ContaBancaria{
         this.LimiteCartao = LimiteCartao;
     }
     static void descontarDebito(ContaCorrente conta,double valor){
-        conta.saldo += conta.saldo - valor;
+        conta.saldo = conta.saldo - valor;
     }
 }
