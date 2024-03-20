@@ -7,15 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 
 public class TelaPrincipal extends JFrame implements assets{
-    public ContaCorrente conta = new ContaCorrente();
 
-    public ContaCorrente getConta() {
-        return this.conta;
-    }
-
-    public void setConta(ContaCorrente conta) {
-        this.conta = conta;
-    }
     public TelaPrincipal(){
         setTitle("Sistema de Gestão financeira");
         setVisible(true);
@@ -26,8 +18,7 @@ public class TelaPrincipal extends JFrame implements assets{
         setLayout(null);
 
         JLabel saldo = new JLabel();
-        conta.setSaldo(1000);
-        saldo.setText(String.valueOf(conta.getSaldo()));
+        saldo.setText(String.valueOf(0));
         saldo.setBounds(0,0,100,100);
         saldo.setVisible(true);
         saldo.setFont(fonte_padrao);
@@ -54,8 +45,5 @@ public class TelaPrincipal extends JFrame implements assets{
     public static void atualizarSaldo(JLabel saldo) {
         // Obtém a instância da TelaPrincipal atual
         TelaPrincipal telaPrincipal = (TelaPrincipal) SwingUtilities.getWindowAncestor(SwingUtilities.getRootPane(saldo));
-        
-        // Atualiza o texto do saldo
-        saldo.setText(String.valueOf(telaPrincipal.conta.getSaldo()));
     }
 }

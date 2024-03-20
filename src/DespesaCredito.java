@@ -4,4 +4,7 @@ public class DespesaCredito extends Despesa {
 		super(valor, nome, categoria, conta);
 		this.qtdparcelas = qtdparcelas;
 	}
+	public double getValorTotal(){
+		return this.valor * this.qtdparcelas;
+	}
 }

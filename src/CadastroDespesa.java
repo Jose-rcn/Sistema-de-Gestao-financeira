@@ -4,7 +4,7 @@ public class CadastroDespesa {
 
     static ArrayList <DespesaCredito> lista_cCreditos = new ArrayList<>();
     static ArrayList <DespesaDebito> lista_cDespesaDebitos = new ArrayList<>();
-    static ArrayList <Assinaturas> lista_cAssinaturas = new ArrayList<>();
+    static ArrayList <Assinatura> lista_cAssinaturas = new ArrayList<>();
 
 
     static void adicionarDespesaCredito(DespesaCredito d){
@@ -19,10 +19,10 @@ public class CadastroDespesa {
     static void removerDespesaDebito(DespesaDebito d){
         lista_cDespesaDebitos.remove(d);
     }
-    static void adicionarAssinatura(Assinaturas d){
+    static void adicionarAssinatura(Assinatura d){
         lista_cAssinaturas.add(d);
     }
-    static void removerAssinatura(Assinaturas d){
+    static void removerAssinatura(Assinatura d){
         lista_cAssinaturas.remove(d);
     }
 
@@ -36,7 +36,7 @@ public class CadastroDespesa {
     }
     static String listarAssinaturas(ContaBancaria conta){
         String dados = "";
-        for(Assinaturas a :lista_cAssinaturas){
+        for(Assinatura a :lista_cAssinaturas){
             dados += a.getNome() + a.getCategoria();
         }
         return dados;
@@ -48,7 +48,7 @@ public class CadastroDespesa {
         }
         return dados;
     }
-    static ArrayList<Assinaturas> getLista_cAssinaturas(){
+    static ArrayList<Assinatura> getLista_cAssinaturas(){
         return lista_cAssinaturas;
     }
 }

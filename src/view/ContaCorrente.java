@@ -1,15 +1,8 @@
 import java.util.ArrayList;
 public class ContaCorrente extends ContaBancaria{
-    private double LimiteCartao, LimiteChequeEspecial,limiteDisponivel;
+    private double LimiteCartao, LimiteChequeEspecial;
+    ArrayList<ContaCorrente> contas_cadastradas = new ArrayList<>();
 
-    public double getLimiteDisponivel() {
-        return this.limiteDisponivel;
-    }
-
-    public void setLimiteDisponivel(double limiteDisponivel) {
-        this.limiteDisponivel = limiteDisponivel;
-    }
-    
     public double getLimiteCartao() {
         return this.LimiteCartao;
     }
@@ -28,7 +21,6 @@ public class ContaCorrente extends ContaBancaria{
     public ContaCorrente(String nome, double saldo, double LimiteCartao){
         super(nome, saldo);
         this.LimiteCartao = LimiteCartao;
-        this.limiteDisponivel = LimiteCartao;
     }
     static void descontarDebito(ContaCorrente conta,double valor){
         conta.saldo = conta.saldo - valor;

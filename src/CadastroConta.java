@@ -20,13 +20,27 @@ public class CadastroConta {
         }
         return dados;
     }
+    static void atualizarLimiteDisponivel(){
+        for (ContaCorrente conta:lista_cadastro_corrente){
+            double limiteUsado = 0;
+            for (DespesaCredito d: CadastroDespesa.lista_cCreditos){
+                limiteUsado += d.getValorTotal();
+            }
+            for (Assinatura a: CadastroDespesa.lista_cAssinaturas){
+                limiteUsado += a.getValor();
+            }
+            conta.setLimiteDisponivel(conta.getLimiteCartao() - limiteUsado);
+        }
+    }
     static String imprimirInformacoes(){
         String dados = "";
+        atualizarLimiteDisponivel();
         for (ContaCorrente conta:lista_cadastro_corrente){
             dados += "-=-=-=-=-=-=-=-=-=-=-=-=-==-==-=-=-=-=\n";
             dados += "Conta: " + conta.getNome() + "\n";
             dados += "Saldo: " + conta.getSaldo() + "\n";
             dados += "Limite: " + conta.getLimiteCartao() + "\n";
+            dados += "Limite Disponivel: " + conta.getLimiteDisponivel() + "\n";
             dados += "-=-=-=-=-=-=-=-=-=-=-=-=-==-==-=-=-=-=\n";
         }
         return dados;

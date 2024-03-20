@@ -49,8 +49,6 @@ public class TelaCadastroDébito extends JFrame implements assets{
         setVisible(true);
     }
     public void finalizar(ActionEvent event){
-        DespesaDebito novaDespesaDébito = new DespesaDebito(Double.parseDouble(valor.getText()),"", categoria.getText(), campoData.getText());
-        CadastroDespesa.adicionarDespesaDebito(novaDespesaDébito);
         JOptionPane.showMessageDialog(null, "Despesa Cadastrada com sucesso!");
         setVisible(false);
         new TelaPrincipal();

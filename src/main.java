@@ -4,7 +4,7 @@ public class main {
     public static void main(String[] args) {
         int opção = 0, qtdParcelas = 0, opcaoConta;
         double saldoNovaConta = 0,limiteNovaConta = 0, valorDespesa = 0;
-        String nomeNovaConta, descricaoDespesa, data, categoriaDespesa;
+        String nomeNovaConta = "", descricaoDespesa, data, categoriaDespesa;
         Scanner entradaTeclado = new Scanner(System.in);
         while (true) {
             System.out.println(CadastroConta.imprimirInformacoes());
@@ -29,7 +29,6 @@ public class main {
                     limiteNovaConta = entradaTeclado.nextDouble();
                     ContaCorrente novaContaCorrente = new ContaCorrente(nomeNovaConta,saldoNovaConta,limiteNovaConta);
                     CadastroConta.adicionarContaCorrente(novaContaCorrente);
-                    System.out.println("Nova conta corrente cadastrada com sucesso!");
                     break;
                 case 2:
                     System.out.println("Digite a descrição do gasto");
@@ -95,17 +94,45 @@ public class main {
                     }
                     break;
                 case 4:
+                    System.out.println("Digite a descrição do produto:");
+                    entradaTeclado.nextLine();
+                    descricaoDespesa = entradaTeclado.nextLine();
+
+                    System.out.println("Informe a categoria:");
+                    entradaTeclado.nextLine();
+                    categoriaDespesa = entradaTeclado.nextLine();
+
+                    System.out.println("Digite o valor da parcela:");
+                    valorDespesa = entradaTeclado.nextDouble();
+
+                    System.out.println(CadastroConta.getContaCorrenteCadastrada());
+                    opcaoConta = entradaTeclado.nextInt();
+                    contaAssociada = CadastroConta.lista_cadastro_corrente.get(opcaoConta-1);
+
+                    Assinatura despesaCadastro = new Assinatura(valorDespesa, nomeNovaConta, categoriaDespesa, contaAssociada);
+                    CadastroDespesa.adicionarAssinatura(despesaCadastro);
+
         	        break;
                 case 5:
+                    CadastroExtrato.atualizarExtratos();
                     System.out.println(CadastroExtrato.listarExtrato());
+                    entradaTeclado.nextLine();
+                    String enter = entradaTeclado.nextLine();
         	        break;
                 default:
         	        System.out.println("Opção inválida, tente novamente com uma das opções possiveis.");
         	    break;
             }
+            clearTerminal();
         }
         
+        
     }
-    public void registroDespesa(){
+    static void clearTerminal() {
+            try {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } catch (Exception e) {
+                System.out.println("Erro ao tentar limpar o terminal: " + e.getMessage());
+            }
     }
 }

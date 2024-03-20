@@ -6,7 +6,7 @@ public class CadastroExtrato {
     static void adicionarExtrato(Extrato e){
         listaExtratos.add(e);
     }
-    static void removerContaCorrente(Extrato e){
+    static void removerExtrato(Extrato e){
         listaExtratos.remove(e);
     }
     static boolean extratoCadastrado(int mes, int ano, ContaCorrente conta){
@@ -26,7 +26,8 @@ public class CadastroExtrato {
         return null;
     }
     static String listarExtrato(){
-        String dados = "=-=-=-=-=-=-=-=-=-=-==-=-==-=-\n";
+        String dados = "";
+        dados += "=-=-=-=-=-=-=-=-=-=-==-=-==-=-\n";
         double total = 0;
         for(Extrato e :listaExtratos){
             total += e.getValor();
@@ -36,5 +37,14 @@ public class CadastroExtrato {
             dados += e.getDespesas();
         }
         return dados;
-    } 
+    }
+    static void atualizarExtratos(){
+        for(Extrato e:listaExtratos){
+            for (Assinatura assinatura: CadastroDespesa.getLista_cAssinaturas()){
+                double valor = e.getValor() + assinatura.getValor();
+                e.setValor(valor);
+            }
+            
+        }
+    }
 }
